@@ -71,10 +71,16 @@
     UIImageView *backgroundView = [UIImageView new];
     backgroundView.contentMode = UIViewContentModeCenter;
     backgroundView.tintColor = CTAssetsPikcerThumbnailTintColor;
+    if (@available(iOS 11.0, *)) {
+        backgroundView.accessibilityIgnoresInvertColors = YES;
+    }
     self.backgroundView = backgroundView;
     
     UIImageView *imageView = [UIImageView new];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
+    if (@available(iOS 11.0, *)) {
+        imageView.accessibilityIgnoresInvertColors = YES;
+    }
     self.imageView = imageView;
     
     [self addSubview:self.backgroundView];

@@ -106,7 +106,10 @@ NSString * const CTAssetScrollViewPlayerWillPauseNotification = @"CTAssetScrollV
 {
     UIImageView *imageView = [UIImageView new];
     imageView.isAccessibilityElement    = YES;
-    imageView.accessibilityTraits       = UIAccessibilityTraitImage;
+    imageView.accessibilityTraits       = UIAccessibilityTraitImage;    
+    if (@available(iOS 11.0, *)) {
+        imageView.accessibilityIgnoresInvertColors = YES;
+    }
     self.imageView = imageView;
     [self addSubview:self.imageView];
     
