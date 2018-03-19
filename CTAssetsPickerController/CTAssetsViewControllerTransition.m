@@ -98,7 +98,7 @@
         mask.backgroundColor    = [UIColor whiteColor];
         
         // Prepare transition
-        snapshot.transform  = CGAffineTransformMakeScale(startScale, startScale);;
+        snapshot.transform  = CGAffineTransformMakeScale(startScale, startScale);
         snapshot.layer.mask = mask.layer;
         snapshot.center     = cellCenter;
         
