@@ -407,8 +407,11 @@
     PHAssetCollection *collection = self.assetCollections[indexPath.row];
     NSUInteger count;
     
-    if (self.picker.showsNumberOfAssets)
-        count = [collection ctassetPikcerCountOfAssetsFetchedWithOptions:self.picker.assetsFetchOptions];
+    if (self.picker.showsNumberOfAssets) {
+        PHFetchOptions *assetsFetchOptions = [[PHFetchOptions alloc] init];
+        assetsFetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType != %d", PHAssetMediaTypeUnknown];
+        count = [collection ctassetPikcerCountOfAssetsFetchedWithOptions:assetsFetchOptions];
+    }
     else
         count = NSNotFound;
     

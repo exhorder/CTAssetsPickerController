@@ -192,9 +192,11 @@ NSString * const CTAssetsGridViewFooterIdentifier = @"CTAssetsGridViewFooterIden
 
 - (void)setupAssets
 {
+    PHFetchOptions *assetsFetchOptions = [[PHFetchOptions alloc] init];
+    assetsFetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType != %d", PHAssetMediaTypeUnknown];
     PHFetchResult *fetchResult =
     [PHAsset fetchAssetsInAssetCollection:self.assetCollection
-                                  options:self.picker.assetsFetchOptions];
+                                  options:assetsFetchOptions];
     
     self.fetchResult = fetchResult;
     [self reloadData];
