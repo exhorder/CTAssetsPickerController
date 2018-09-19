@@ -107,7 +107,7 @@
     [self.contentView addSubview:self.thumbnailStacks];
     [self.contentView addSubview:self.labelsView];
     
-    UIImage *accessory = [UIImage ctassetsPickerImageNamed:@"DisclosureArrow"];
+    UIImage *accessory = [[UIImage ctassetsPickerImageNamed:@"DisclosureArrow"] imageFlippedForRightToLeftLayoutDirection];
     accessory = [accessory imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *accessoryView = [[UIImageView alloc] initWithImage:accessory];
     accessoryView.tintColor = self.accessoryColor;
