@@ -63,11 +63,13 @@
 - (void)setupViews
 {
     self.backgroundColor = CTAssetsGridSelectedViewBackgroundColor;
-    self.layer.borderColor = CTAssetsGridSelectedViewTintColor.CGColor;
+    self.layer.borderColor = [UIColor colorWithRed:0.0f green:0.75 blue:0.65 alpha:1.0f].CGColor;
     
-    CTAssetCheckmark *checkmark = [CTAssetCheckmark newAutoLayoutView];
-    self.checkmark = checkmark;
-    [self addSubview:checkmark];
+    UIImageView *checkmarkImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"white_checkmark"]];
+    [checkmarkImageView configureForAutoLayout];
+    [self addSubview:checkmarkImageView];
+    [checkmarkImageView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:6.0f];
+    [checkmarkImageView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:7.0f];
     
     CTAssetSelectionLabel *selectionIndexLabel = [CTAssetSelectionLabel newAutoLayoutView];
     self.selectionIndexLabel = selectionIndexLabel;

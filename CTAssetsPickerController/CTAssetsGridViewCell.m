@@ -98,6 +98,8 @@
     
     CTAssetsGridSelectedView *selectedView = [CTAssetsGridSelectedView newAutoLayoutView];
     selectedView.hidden = YES;
+    selectedView.borderWidth = 2.0f;
+    selectedView.backgroundColor = [UIColor colorWithRed:0.0f green:0.75 blue:0.65 alpha:0.48f];
     self.selectedView = selectedView;
     [self addSubview:self.selectedView];
 }
